@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="ngLivepoint">
 	<head>
 	<!-- plain info -->
 	
@@ -11,34 +11,13 @@
 	<!-- head js -->
 	<script src="http://code.angularjs.org/1.2.9/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.9/angular-animate.min.js"></script>
+    <!-- appka -->
+    <script type="text/javascript" src="js/app.js"></script>
 	<!-- head css -->
-	
+	<link rel="stylesheet" type="text/css" href="css/base.css">
 	<!-- inline css-->
 	<style>
-	social {
-		display:block;
-		margin:0;
-		padding:0;
-		border:0;
-		color: red;
-	}
-	.css-class-add, .css-class-remove {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-	}
- 
-.css-class,
-.css-class-add.css-class-add-active {
-  color: red;
-  font-size:3em;
-}
- 
-.css-class-remove.css-class-remove-active {
-  font-size:1.0em;
-  color:black;
-}
+	/* lol */
 	</style>
 	<!-- fallback  for IE and shit -->
 	<!--[if lt IE 9]> 
@@ -49,15 +28,27 @@
 	<!-- go go go -->
 	
 	<body>
-	<social>
-	to jest test
-	</social>
-	<p>
-      <input type="button" value="set" ng-click="myCssVar='css-class'">
-      <input type="button" value="clear" ng-click="myCssVar=''">
-      <br>
-      <span ng-class="myCssVar">CSS-Animated Text</span>
-    </p>
+	<div ng-controller="MainCntl">
+
+	<nav>
+	  Choose:
+  <a href="Book/Moby">Moby</a> |
+  <a href="Book/Moby/ch/1">Moby: Ch1</a> |
+  <a href="Book/Gatsby">Gatsby</a> |
+  <a href="Book/Gatsby/ch/4?key=value">Gatsby: Ch4</a> |
+  <a href="Book/Scarlet">Scarlet Letter</a><br/>
+	</nav>
+	<div ng-view></div>
+    <hr />
+
+  	<pre>$location.path() = {{$location.path()}}</pre>
+  	<pre>$route.current.templateUrl = {{$route.current.templateUrl}}</pre>
+  	<pre>$route.current.params = {{$route.current.params}}</pre>
+  	<pre>$route.current.scope.name = {{$route.current.scope.name}}</pre>
+  	<pre>$routeParams = {{$routeParams}}</pre>
+
+  	</div>
+
 	<!-- defered js -->
 	<!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/platform.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/polymer.js"></script> -->
