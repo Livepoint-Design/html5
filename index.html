@@ -22,6 +22,23 @@
 		border:0;
 		color: red;
 	}
+	.css-class-add, .css-class-remove {
+  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
+	}
+ 
+.css-class,
+.css-class-add.css-class-add-active {
+  color: red;
+  font-size:3em;
+}
+ 
+.css-class-remove.css-class-remove-active {
+  font-size:1.0em;
+  color:black;
+}
 	</style>
 	<!-- fallback  for IE and shit -->
 	<!--[if lt IE 9]> 
@@ -35,6 +52,12 @@
 	<social>
 	to jest test
 	</social>
+	<p>
+      <input type="button" value="set" ng-click="myCssVar='css-class'">
+      <input type="button" value="clear" ng-click="myCssVar=''">
+      <br>
+      <span ng-class="myCssVar">CSS-Animated Text</span>
+    </p>
 	<!-- defered js -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/platform.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/polymer/0.1.3/polymer.js"></script>
